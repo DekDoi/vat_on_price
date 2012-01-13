@@ -1,25 +1,20 @@
 class PriceVat
-  
-  ##############################
-  
-  def initialize(price)
-    @price = price
+
+  def initialize(percent)
+    @percent = percent
+    @vat = 1+@percent/100.0
   end
   
-  # PriceVat.new(850).to_vat(7)
-  def to_vat(percent)
-    @price/(1+percent/100.0)
+  def before_vat(price_included_vat)
+    price_included_vat/@vat
   end
-  
-  ############# OR ##############
-  
-  # PriceVat.to_v(850, 7)
-  class << self
-    def to_v(price, percent)
-      price/(1+percent/100.0)
-    end
+
+  def after_vat(price_excluded_vat)
+    price_excluded_vat*@vat
   end
-  
-  ###############################
-  
+
+  def vat_price(price_excluded_vat, price_included_vat)
+    after_vat(price_excluded_vat) - before_vat(price_included_vat)
+  end
+
 end
