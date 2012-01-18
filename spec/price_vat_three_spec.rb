@@ -7,7 +7,7 @@ describe PriceVatThree do
   end
   
   describe "#new" do
-    it "takes a parameter and returns a PriceVat object" do
+    it "takes a parameter and returns a PriceVatThree object" do
       @price_vat.should be_an_instance_of PriceVatThree
     end
   end
