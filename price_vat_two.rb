@@ -1,4 +1,4 @@
-class PriceVat
+class PriceVatTwo
   
   class << self
 
