@@ -1,5 +1,4 @@
 class PriceVat
-  attr_accessor :percent
 
   def initialize(percent)
     @percent = percent
